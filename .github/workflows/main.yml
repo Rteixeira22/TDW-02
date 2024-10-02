@@ -49,6 +49,15 @@ jobs:
         run: npx jest --config jest.config.js
         working-directory: ./tdw-02
 
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./tdw-02/coverage/*.json
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true
+
   build-project:
     name: Build Project
     runs-on: ubuntu-latest
