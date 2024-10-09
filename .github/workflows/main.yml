@@ -1,12 +1,6 @@
-name: tdw-02-pipeline
+name: CI
 
-on:
-  push:
-    branches:
-      - '**'
-  pull_request:
-    branches:
-      - '**'
+on: [push, pull_request]
 
 jobs:
   install-dependencies:
@@ -45,6 +39,11 @@ jobs:
       - name: Run tests
         run: npx jest --config jest.config.js
         working-directory: ./tdw-02
+
+      - name: List coverage files
+        run: |
+          echo "Listing coverage files..."
+          ls -R ./tdw-02/coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2
