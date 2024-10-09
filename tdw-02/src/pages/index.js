@@ -36,7 +36,8 @@ export default function Home() {
           <li> Teste de prettier</li> <li>maais um teste </li>{" "}
           <li> Teste de prettier</li> <li>maais um teste </li>{" "}
           <li> Teste de prettier</li> <li>maais um teste </li>{" "}
-          <li> Teste de prettier</li> <li>maais um teste </li>
+          <li> Teste de prettier</li> <li>maais um teste </li>{" "}
+          <li> Teste de prettier</li> <li>maais um teste vou morrer </li>
         </main>
         <footer >
           
