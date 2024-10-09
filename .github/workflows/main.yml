@@ -23,10 +23,12 @@ jobs:
       run: |
         pytest --cov=./tdw-02 --cov-report=json:./tdw-02/coverage/coverage.json
 
-    - name: List coverage files
+    - name: List files
       run: |
-        echo "Listing coverage files..."
-        ls -R ./tdw-02/coverage
+        echo "Current directory:"
+        pwd
+        echo "Files in current directory:"
+        ls -R
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v2
