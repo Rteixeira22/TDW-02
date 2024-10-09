@@ -41,6 +41,22 @@ exports[`renderiza corretamente 1`] = `
       <li>
         maais um teste 
       </li>
+       
+      <li>
+         Teste de prettier
+      </li>
+       
+      <li>
+        maais um teste 
+      </li>
+       
+      <li>
+         Teste de prettier
+      </li>
+       
+      <li>
+        maais um teste 
+      </li>
     </main>
     <footer />
   </div>
