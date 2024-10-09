@@ -1,3 +1,5 @@
+import React from 'react';
+
 function soma(a, b) {
     return a + b;
     }
