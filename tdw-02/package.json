@@ -13,6 +13,7 @@
     "coverage": "jest --coverage"
   },
   "dependencies": {
+    "netlify-cli": "^17.36.4",
     "next": "14.2.14",
     "punycode.js": "^2.1.1"
   },
