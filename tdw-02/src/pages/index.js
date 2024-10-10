@@ -25,24 +25,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <main >
-
+        <main>
           <h1>Test c/ jest</h1>
-
           <h3>Test pipeline</h3>
-
           <li> Teste de prettier</li> <li>mais um teste </li>{" "}
           <li> Teste de prettier</li> <li>maais um teste </li>{" "}
           <li> Teste de prettier</li> <li>maais um teste </li>{" "}
           <li> Teste de prettier</li> <li>maais um teste </li>{" "}
           <li> Teste de prettier</li> <li>maais um teste </li>{" "}
           <li> Teste de prettier</li> <li>maais um teste </li>{" "}
-          <li> Teste de prettier</li> 
+          <li> Teste de prettier</li> <li>maais um teste vou morrer</li>
         </main>
-        <footer >
-          
-           
-        </footer>
+        <footer></footer>
       </div>
     </>
   );
