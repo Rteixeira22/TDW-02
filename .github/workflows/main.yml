@@ -89,8 +89,8 @@ jobs:
         run: npm install
         working-directory: ./tdw-02
 
-      - name: Build and Export Project
-        run: npm run build && npm run export
+      - name: Build Project
+        run: npm run build
         working-directory: ./tdw-02
 
   deploy:
