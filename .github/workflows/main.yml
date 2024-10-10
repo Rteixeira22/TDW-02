@@ -89,8 +89,8 @@ jobs:
         run: npm install
         working-directory: ./tdw-02
 
-      - name: Build Project
-        run: npm run build
+      - name: Build for Netlify
+        run: netlify build
         working-directory: ./tdw-02
 
   deploy:
@@ -110,8 +110,8 @@ jobs:
         run: npm install
         working-directory: ./tdw-02
 
-      - name: Build for Netlify
-        run: netlify build
+      - name: Link Netlify Site
+        run: netlify link --site ${{ secrets.NETLIFY_SITE_ID }}
         working-directory: ./tdw-02
 
       - name: Deploy to Netlify
