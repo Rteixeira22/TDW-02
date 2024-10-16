@@ -111,5 +111,5 @@ jobs:
           node-version: "22"
 
       - name: Deploy to Netlify
-        run: npx netlify-cli deploy --site monumental-sherbet-28692c.netlify.app --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --prod --dir=out
+        run: npx netlify-cli deploy --site monumental-sherbet-28692c.netlify.app --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --prod --dir=./tdw-02/out
         working-directory: ./tdw-02
