@@ -92,8 +92,8 @@ jobs:
         working-directory: ./tdw-02
 
       - name: Create output directory
-        run: mkdir -p tdw-02/out
-        working-directory: ./tdw-02/out
+        run: mkdir -p ./tdw-02/out
+        working-directory: tdw-02/out
 
 
       - name: Build Project
