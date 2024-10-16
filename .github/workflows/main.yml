@@ -16,7 +16,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./tdw-02
 
   run-tests:
     runs-on: ubuntu-latest
@@ -32,11 +31,9 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./tdw-02
 
       - name: Run tests
         run: npx jest --config jest.config.js
-        working-directory: ./tdw-02
 
       - name: List coverage files
         run: |
@@ -65,11 +62,9 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./tdw-02
 
       - name: Run Prettier
         run: npm run prettier
-        working-directory: ./tdw-02
 
   build:
     runs-on: ubuntu-latest
@@ -86,16 +81,13 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./tdw-02
 
       - name: Create output directory
         run: mkdir -p ./tdw-02/out
-        working-directory: ./tdw-02
 
 
       - name: Build Project
         run: npm run build 
-        working-directory: ./tdw-02
 
       - name: List output directory
         run: ls -l ./tdw-02/out
@@ -116,4 +108,3 @@ jobs:
 
       - name: Deploy to Netlify
         run: npx netlify-cli deploy --site monumental-sherbet-28692c.netlify.app --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --prod --dir=out
-        working-directory: ./tdw-02
