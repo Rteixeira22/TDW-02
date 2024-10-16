@@ -93,6 +93,12 @@ jobs:
         run: npm run build
         working-directory: ./tdw-02
 
+      - name: List directory after build
+        run: |
+          echo "Listing files after build..."
+          ls -R ./tdw-02
+        working-directory: ./tdw-02
+
       - name: List output directory
         run: ls -l ./tdw-02/out
         working-directory: ./tdw-02
