@@ -90,12 +90,12 @@ jobs:
         working-directory: ./tdw-02
 
       - name: Build Project
-        run: npm run build 
+        run: npm run build && npm run export
         working-directory: ./tdw-02
 
       - name: List output directory
         run: ls -l ./tdw-02/out
-
+        working-directory: ./tdw-02
 
   deploy:
     runs-on: ubuntu-latest
