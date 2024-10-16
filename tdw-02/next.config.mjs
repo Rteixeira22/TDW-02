@@ -6,7 +6,8 @@ const nextConfig = {
   },
 
   output: "export", // Configura a exportação estática
-  distDir: "out"    // Define a pasta de saída como "out"
+  basePath: '',
+  //distDir: "out"    // Define a pasta de saída como "out"
 };
 
 export default nextConfig;
