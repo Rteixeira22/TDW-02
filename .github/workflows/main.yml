@@ -94,8 +94,10 @@ jobs:
         working-directory: ./tdw-02
 
       - name: List output directory
-        run: ls -l ./tdw-02/out
-
+        run: |
+          echo "Listing files in the output directory..."
+          ls -l ./tdw-02/out
+        working-directory: ./tdw-02
 
   deploy:
     runs-on: ubuntu-latest
