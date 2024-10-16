@@ -14,11 +14,6 @@ jobs:
         with:
           node-version: "22"
 
-      - name: List top-level directory
-        run: |
-          echo "Listing top-level directory..."
-          ls -R .
-        
       - name: Install dependencies
         run: npm install
         working-directory: ./tdw-02
@@ -47,7 +42,6 @@ jobs:
         run: |
           echo "Listing coverage files..."
           ls -R ./tdw-02/coverage
-
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2
         with:
@@ -95,19 +89,12 @@ jobs:
         working-directory: ./tdw-02
 
       - name: Build Project
-        run: npm run build
+        run: npm run build 
         working-directory: ./tdw-02
 
-      - name: Verify and list output directory
-        run: |
-          if [ -d "./tdw-02/out" ]; then
-            echo "Listing files in the output directory..."
-            ls -l ./tdw-02/out
-          else
-            echo "Directory ./tdw-02/out does not exist"
-            ls -R ./tdw-02
-          fi
-        working-directory: ./tdw-02
+      - name: List output directory
+        run: ls -l ./tdw-02/out
+
 
   deploy:
     runs-on: ubuntu-latest
@@ -123,5 +110,5 @@ jobs:
           node-version: "22"
 
       - name: Deploy to Netlify
-        run: npx netlify-cli deploy --site monumental-sherbet-28692c.netlify.app --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --prod --dir=./tdw-02/out
+        run: npx netlify-cli deploy --site monumental-sherbet-28692c.netlify.app --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --prod --dir=out
         working-directory: ./tdw-02
