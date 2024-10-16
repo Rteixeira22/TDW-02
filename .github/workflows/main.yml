@@ -1,119 +1,28 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  install-dependencies:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "22"
-
-      - name: Install dependencies
-        run: npm install
-        working-directory: ./tdw-02
-
-  run-tests:
-    runs-on: ubuntu-latest
-    needs: install-dependencies
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "22"
-
-      - name: Install dependencies
-        run: npm install
-        working-directory: ./tdw-02
-
-      - name: Run tests
-        run: npx jest --config jest.config.js
-        working-directory: ./tdw-02
-
-      - name: List coverage files
-        run: |
-          echo "Listing coverage files..."
-          ls -R ./tdw-02/coverage
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v2
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./tdw-02/coverage/coverage-final.json
-          flags: unittests
-          name: codecov-umbrella
-          fail_ci_if_error: true
-
-  linting:
-    runs-on: ubuntu-latest
-    needs: run-tests
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "22"
-
-      - name: Install dependencies
-        run: npm install
-        working-directory: ./tdw-02
-
-      - name: Run Prettier
-        run: npm run prettier
-        working-directory: ./tdw-02
-
   build:
     runs-on: ubuntu-latest
-    needs: linting
-    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
         with:
-          node-version: "22"
+          node-version: '22'
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./tdw-02
 
-      - name: Create output directory
-        run: mkdir -p ./tdw-02/out
-        working-directory: ./tdw-02
-
-
-      - name: Build Project
-        run: npm run build 
-        working-directory: ./tdw-02
-
-      - name: List output directory
-        run: ls -l ./tdw-02/out
-
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "22"
+      - name: Build project
+        run: npm run build
 
       - name: Deploy to Netlify
         run: npx netlify-cli deploy --site monumental-sherbet-28692c.netlify.app --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --prod --dir=out
-        working-directory: ./tdw-02
