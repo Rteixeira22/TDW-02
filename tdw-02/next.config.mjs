@@ -6,7 +6,7 @@ const nextConfig = {
   },
 
   output: "export", // Configura a exportação estática
-  basePath: 'tdw-02/',
+  basePath: '/tdw-02',
   //distDir: "out"    // Define a pasta de saída como "out"
 };
 
