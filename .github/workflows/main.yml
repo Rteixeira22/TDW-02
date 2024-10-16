@@ -14,6 +14,11 @@ jobs:
         with:
           node-version: "22"
 
+      - name: List top-level directory
+        run: |
+          echo "Listing top-level directory..."
+          ls -R .
+        
       - name: Install dependencies
         run: npm install
         working-directory: ./tdw-02
