@@ -90,7 +90,7 @@ jobs:
         working-directory: ./tdw-02
 
       - name: Build Project
-        run: npm run build && npm run export
+        run: npm run build
         working-directory: ./tdw-02
 
       - name: List output directory
