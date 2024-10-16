@@ -93,14 +93,15 @@ jobs:
         run: npm run build
         working-directory: ./tdw-02
 
-      - name: List directory after build
+      - name: Verify and list output directory
         run: |
-          echo "Listing files after build..."
-          ls -R ./tdw-02
-        working-directory: ./tdw-02
-
-      - name: List output directory
-        run: ls -l ./tdw-02/out
+          if [ -d "./tdw-02/out" ]; then
+            echo "Listing files in the output directory..."
+            ls -l ./tdw-02/out
+          else
+            echo "Directory ./tdw-02/out does not exist"
+            ls -R ./tdw-02
+          fi
         working-directory: ./tdw-02
 
   deploy:
